@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>http://sherl0cks.github.io/</title>
+   
+   <link>http://sherl0cks.github.io/</link>
+   <description>My thoughts on people, process and technology.</description>
+   <language>en-uk</language>
+   <managingEditor> Justin Holmes</managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Selecting A Blog Platform</title>
+	  <link>//selecting-a-blog-platform</link>
+	  <author>Justin Holmes</author>
+	  <pubDate>2016-03-10T11:49:00-05:00</pubDate>
+	  <guid>//selecting-a-blog-platform</guid>
+	  <description><![CDATA[
+	     <p>Setting up a blog has been on my <code>TODO</code> list for several years. I&#39;ve spent a lot of time over the last few years reading blogs from smart people like <a href="http://dannorth.net/blog/">Dan North</a>, <a href="http://www.martinfowler.com/">Martin Fowler</a>, <a href="http://blog.christianposta.com/">Cristian Posta</a>, <a href="http://jpattonassociates.com/blog/">Jeff Patton</a>, <a href="http://www.schabell.org/">Eric Schabell</a>, <a href="http://www.scaledagileframework.com/author/deanleffingwell/">Dean Leffingwell</a> and <a href="http://mswiderski.blogspot.com/">Maciej Swiderski</a> (just to name a few). But sharing my own ideas... Well that has only happened in small and sporadic bits, largely via <a href="https://engage.redhat.com/forms/bdd?sc_cid=70160000000bqcVAAQ&amp;offer_id=70160000000brtPAAQ">whitepapers</a> and <a href="https://www.redhat.com/en/about/events/using-bpm-enable-devops-values-enterprise">presentations</a> for Red Hat. So after years of encouragement (thanks Haden), I&#39;ve decided it&#39;s time to make this idea a reality.</p>
+
+<h3>So Where To Start?</h3>
+
+<p>It turns out that the blogging platforms are going through a period of rapid innovation. The idea of a database driven, content management approach to blogging (a la WordPress) is being challenged by static site generators, which allow you to hack your blog together using your favorite text editor and a terminal. With a simple <code>git push</code>, your blog is now hosted on <a href="https://pages.github.com/">GitHub Pages</a> for free. I travel a lot for work, so an offline workflow to write blogs just feels natural. Plus, I get to learn some new web tech along the way.</p>
+
+<p>Also, worth noting here that there is a whole new family of social blogging platforms like <a href="https://medium.com/">Medium</a>, but I&#39;ll pass on yet another social media platform.</p>
+
+<h3>Which Project To Choose?</h3>
+
+<p>If you choose a static site generator, <a href="https://www.staticgen.com/">there are a lot of options</a>. They are pretty much all open source and hosted on GitHub. I chose the most popular project out there, <a href="https://jekyllrb.com/">Jekyll</a>, for a few reasons:</p>
+
+<ul>
+<li>Markdown support. I really like writing in markdown.</li>
+<li>Hackable. This blog is a sublime project with ruby/html/css/js files and a few ruby gems.</li>
+<li>Large community with <a href="http://jekyllthemes.org/">lots of cool templates</a></li>
+<li>Fully offline workflow</li>
+<li><a href="https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/">Natively supported via GitHub Pages</a></li>
+</ul>
+
+<h3>Next Steps</h3>
+
+<p>A few other projects caught my eye, all powered via Node.js, which interests me more than a ruby platform:</p>
+
+<ul>
+<li><a href="https://ghost.org/">Ghost</a></li>
+<li><a href="https://www.gitbook.com/">Gitbook</a></li>
+<li><a href="https://hexo.io/">Hexo</a></li>
+</ul>
+
+<p>At the moment I&#39;m using the <a href="https://github.com/biomadeira/jasper">Jasper Jekyll template</a> which doesn&#39;t perfectly <a href="https://github.com/biomadeira/jasper#deployment">integrate with GitHub pages</a> so I may explore other platforms or templates to smooth out the workflow. The beauty of a static site generator is that migrating the content is really just a matter of copying over the markdown files.</p>
+
+<p>Oh, and start writing my ideas down more regularly.</p>
+
+<p>photo credit: <a href="http://www.flickr.com/photos/50204706@N07/25509850966">Chambers Street Station</a> via <a href="http://photopin.com/">photopin</a> under <a href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons SA-2.0</a></p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

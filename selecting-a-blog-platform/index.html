@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- [[! Page Meta ]] -->
-    <title>The Businessman & the fisherman</title>
+    <title>Selecting A Blog Platform</title>
     <meta name="description" content="Push the Envelope. Watch it Bend. - My thoughts on people, process and technology." />
 
     <meta name="HandheldFriendly" content="True" />
@@ -83,9 +83,9 @@
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
 
-<header class="main-header post-head " style="background-image: url(/assets/images/cover7.jpg) ">
+<header class="main-header post-head " style="background-image: url(/assets/images/chambers_street_station.jpg) ">
     <nav class="main-nav  overlay  clearfix">
-        <a class="blog-logo" href="/"><img src="/assets/images/ghost.png" alt="Blog Logo" /></a>
+        
         
             <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
         
@@ -94,23 +94,19 @@
 
 <main class="content" role="main">
 
-    <article class="post tag-test tag-content">
+    <article class="post tag-blogs tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">The Businessman & the fisherman</h1>
+            <h1 class="post-title">Selecting A Blog Platform</h1>
             <section class="post-meta">
             <!-- <a href='/'>Justin Holmes</a> -->
-            <time class="post-date" datetime="2014-08-12">12 Aug 2014</time>
+            <time class="post-date" datetime="2016-03-10">10 Mar 2016</time>
                 <!-- [[tags prefix=" on "]] -->
                  
                 on 
                 
                     
-                       <a href='/tag/fables'>Fables</a>,
-                       
-                
-                    
-                       <a href='/tag/fiction'>Fiction</a>
+                       <a href='/tag/blogs'>Blogs</a>
                        
                 
                 
@@ -119,39 +115,41 @@
 
         <section class="post-content">
             
-            <p>An American businessman took a vacation to a small coastal Mexican village on doctor’s orders. Unable to sleep after an urgent phone call from the office the first morning, he walked out to the pier to clear his head. A small boat with just one fisherman had docked, and inside the boat were several large yellowfin tuna. The American complimented the Mexican on the quality of his fish.</p>
+            <p>Setting up a blog has been on my <code>TODO</code> list for several years. I&#39;ve spent a lot of time over the last few years reading blogs from smart people like <a href="http://dannorth.net/blog/">Dan North</a>, <a href="http://www.martinfowler.com/">Martin Fowler</a>, <a href="http://blog.christianposta.com/">Cristian Posta</a>, <a href="http://jpattonassociates.com/blog/">Jeff Patton</a>, <a href="http://www.schabell.org/">Eric Schabell</a>, <a href="http://www.scaledagileframework.com/author/deanleffingwell/">Dean Leffingwell</a> and <a href="http://mswiderski.blogspot.com/">Maciej Swiderski</a> (just to name a few). But sharing my own ideas... Well that has only happened in small and sporadic bits, largely via <a href="https://engage.redhat.com/forms/bdd?sc_cid=70160000000bqcVAAQ&amp;offer_id=70160000000brtPAAQ">whitepapers</a> and <a href="https://www.redhat.com/en/about/events/using-bpm-enable-devops-values-enterprise">presentations</a> for Red Hat. So after years of encouragement (thanks Haden), I&#39;ve decided it&#39;s time to make this idea a reality.</p>
 
-<p>“How long did it take you to catch them?” the American asked.</p>
+<h3>So Where To Start?</h3>
 
-<p>“Only a little while,” the Mexican replied in surprisingly good English.</p>
+<p>It turns out that the blogging platforms are going through a period of rapid innovation. The idea of a database driven, content management approach to blogging (a la WordPress) is being challenged by static site generators, which allow you to hack your blog together using your favorite text editor and a terminal. With a simple <code>git push</code>, your blog is now hosted on <a href="https://pages.github.com/">GitHub Pages</a> for free. I travel a lot for work, so an offline workflow to write blogs just feels natural. Plus, I get to learn some new web tech along the way.</p>
 
-<p>“Why don’t you stay out longer and catch more fish?” the American then asked.</p>
+<p>Also, worth noting here that there is a whole new family of social blogging platforms like <a href="https://medium.com/">Medium</a>, but I&#39;ll pass on yet another social media platform.</p>
 
-<p>“I have enough to support my family and give a few to friends,” the Mexican said as he unloaded them into a basket.</p>
+<h3>Which Project To Choose?</h3>
 
-<p>“But… What do you do with the rest of your time?”</p>
+<p>If you choose a static site generator, <a href="https://www.staticgen.com/">there are a lot of options</a>. They are pretty much all open source and hosted on GitHub. I chose the most popular project out there, <a href="https://jekyllrb.com/">Jekyll</a>, for a few reasons:</p>
 
-<p>The Mexican looked up and smiled. “I sleep late, fish a little, play with my children, take a siesta with my wife, Julia, and stroll into the village each evening, where I sip wine and play guitar with my amigos. I have a full and busy life, señor.”</p>
+<ul>
+<li>Markdown support. I really like writing in markdown.</li>
+<li>Hackable. This blog is a sublime project with ruby/html/css/js files and a few ruby gems.</li>
+<li>Large community with <a href="http://jekyllthemes.org/">lots of cool templates</a></li>
+<li>Fully offline workflow</li>
+<li><a href="https://help.github.com/articles/using-jekyll-as-a-static-site-generator-with-github-pages/">Natively supported via GitHub Pages</a></li>
+</ul>
 
-<p>The American laughed and stood tall. “Sir, I’m a Harvard M.B.A. and can help you. You should spend more time fishing, and with the proceeds, buy a bigger boat. In no time, you could buy several boats with the increased haul. Eventually, you would have a fleet of fishing boats.”</p>
+<h3>Next Steps</h3>
 
-<p>He continued, “Instead of selling your catch to a middleman, you would sell directly to the consumers, eventually opening your own cannery. You would control the product, processing, and distribution. You would need to leave this small coastal fishing village, of course, and move to Mexico City, then to Los Angeles, and eventually to New York City, where you could run your expanded enterprise with proper management.</p>
+<p>A few other projects caught my eye, all powered via Node.js, which interests me more than a ruby platform:</p>
 
-<p>The Mexican fisherman asked, “But, señor, how long will all this take?”</p>
+<ul>
+<li><a href="https://ghost.org/">Ghost</a></li>
+<li><a href="https://www.gitbook.com/">Gitbook</a></li>
+<li><a href="https://hexo.io/">Hexo</a></li>
+</ul>
 
-<p>To which the American replied, “15-20 years, 25 tops.”</p>
+<p>At the moment I&#39;m using the <a href="https://github.com/biomadeira/jasper">Jasper Jekyll template</a> which doesn&#39;t perfectly <a href="https://github.com/biomadeira/jasper#deployment">integrate with GitHub pages</a> so I may explore other platforms or templates to smooth out the workflow. The beauty of a static site generator is that migrating the content is really just a matter of copying over the markdown files.</p>
 
-<p>“But what then, señor?”</p>
+<p>Oh, and start writing my ideas down more regularly.</p>
 
-<p>The American laughed and said, “That’s the best part. When the time is right, you would announce an IPO and sell your company stock to the public and become very rich. You would make millions.”</p>
-
-<p>“Millions señor? Then what?&quot;</p>
-
-<p>“Then you would retire and move to a small coastal fishing village, where you would sleep late, fish a little, play with your kids, take a siesta with your wife, and stroll in to the village in the evenings where you could sip wine and play your guitar with your amigos.”</p>
-
-<p>Adapted from the &quot;Anekdote zur Senkung der Arbeitsmoral&quot; by <strong>Heinrich Böll</strong></p>
-
-<p>An influential German write and Nobel Prize for Literature in 1972.</p>
+<p>photo credit: <a href="http://www.flickr.com/photos/50204706@N07/25509850966">Chambers Street Station</a> via <a href="http://photopin.com/">photopin</a> under <a href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons SA-2.0</a></p>
 
 
         </section>
@@ -183,15 +181,15 @@
 
             <section class="share">
                 <h4>Share this post</h4>
-                <a class="icon-twitter" href="http://twitter.com/share?text=The Businessman & the fisherman&amp;url=http://sherl0cks.github.io/the-businessman-and-fisherman"
+                <a class="icon-twitter" href="http://twitter.com/share?text=Selecting A Blog Platform&amp;url=http://sherl0cks.github.io/selecting-a-blog-platform"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <span class="hidden">Twitter</span>
                 </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://sherl0cks.github.io/the-businessman-and-fisherman"
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://sherl0cks.github.io/selecting-a-blog-platform"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <span class="hidden">Facebook</span>
                 </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://sherl0cks.github.io/the-businessman-and-fisherman"
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://sherl0cks.github.io/selecting-a-blog-platform"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <span class="hidden">Google+</span>
                 </a>
@@ -210,20 +208,13 @@
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover3.jpg)" href="/a-full-and-comprehensive-style-test">
-            <section class="post">
-                <h2>A Full and Comprehensive Style Test</h2>
-                <p>This is just an ipsis verbis copy of the first example running on the Ghost...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/cover4.jpg)" href="/i-have-a-dream">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/cover3.jpg)" href="/a-full-and-comprehensive-style-test">
             <section class="post">
-                <h2>I Have a Dream</h2>
-                <p>I am happy to join with you today in what will go down in history...</p>
+                <h2>A Full and Comprehensive Style Test</h2>
+                <p>This is just an ipsis verbis copy of the first example running on the Ghost...</p>
             </section>
         </a>
     
