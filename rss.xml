@@ -8,7 +8,16 @@
     <title>Push the Envelope. Watch it Bend.</title>
     <link>http://sherl0cks.github.io/</link>
     <description>My thoughts on people, process and technology.</description>
-    <pubDate>Thu, 10 Mar 2016 11:49:00 -0500</pubDate>
+    <pubDate>Tue, 05 Apr 2016 11:04:00 -0400</pubDate>
+    <item>
+      <title>Introducing the Business Automation Design Patterns</title>
+      <link>http://sherl0cks.github.io//introducing-the-business-automaton-design-patterns</link>
+      <description>Red Hat is in the process of publishing a set of design patterns to help those deploying business automation systems. The goal is to enable practioners to easily reason about their solution architecture in the large. In order to achieve this objective, we enumerate the high level design decisions that a practioner needs to maker and then we provide proscriptive guidaince on how to make those decisions. The following slide decks will walk you through the approach at different levels. Please note that this material is constantly evolving based on field experience:
+
+</description>
+      <pubDate>Tue, 05 Apr 2016 11:04:00 -0400</pubDate>
+      <dc:date>2016-04-05T11:04:00-04:00</dc:date>
+    </item>
     <item>
       <title>Selecting A Blog Platform</title>
       <link>http://sherl0cks.github.io//selecting-a-blog-platform</link>
@@ -27,6 +36,6 @@
       <pubDate>Sat, 27 Sep 2014 06:18:00 -0400</pubDate>
       <dc:date>2014-09-27T06:18:00-04:00</dc:date>
     </item>
-    <dc:date>2016-03-10T11:49:00-05:00</dc:date>
+    <dc:date>2016-04-05T11:04:00-04:00</dc:date>
   </channel>
 </rss>
