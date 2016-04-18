@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- [[! Page Meta ]] -->
-    <title>Introducing the Business Automation Design Patterns</title>
+    <title>KIE Server Authentication & Authorization For Human Tasks</title>
     <meta name="description" content="Push the Envelope. Watch it Bend. - My thoughts on people, process and technology." />
 
     <meta name="HandheldFriendly" content="True" />
@@ -84,7 +84,7 @@
 <!-- Everything inside the #post tags pulls data from the post -->
 <!-- #post -->
 
-<header class="main-header post-head " style="background-image: url(/assets/images/hands.jpg) ">
+<header class="main-header post-head " style="background-image: url(/assets/images/cover6.jpg) ">
     <nav class="main-nav  overlay  clearfix">
         
         
@@ -98,10 +98,10 @@
     <article class="post tag-blogs tag-content">
 
         <header class="post-header">
-            <h1 class="post-title">Introducing the Business Automation Design Patterns</h1>
+            <h1 class="post-title">KIE Server Authentication & Authorization For Human Tasks</h1>
             <section class="post-meta">
             <!-- <a href='/'>Justin Holmes</a> -->
-            <time class="post-date" datetime="2016-04-05">05 Apr 2016</time>
+            <time class="post-date" datetime="2016-04-18">18 Apr 2016</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
@@ -111,7 +111,7 @@
                     
                 
                     
-                       <a href='/tag/Design-Patterns'>Design Patterns</a>,
+                       <a href='/tag/KIE-Server'>KIE Server</a>,
                     
                 
                     
@@ -124,29 +124,40 @@
 
         <section class="post-content">
 
-            <p>Red Hat is in the process of publishing a set of design patterns to help those deploying business automation systems. The goal is to enable practioners to easily reason about their solution architecture in the large. In order to achieve this objective, we enumerate the high level design decisions that a practioner needs to maker and then we provide proscriptive guidaince on how to make those decisions. The following slide decks will walk you through the approach at different levels. Please note that this material is constantly evolving based on field experience:</p>
+            <p>One of the most exciting features developed in the <a href="http://www.kiegroup.org/">KIE Community</a> and released in <a href="https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_BPM_Suite/6.2/html/6.2.0_Release_Notes/ch01s02.html">Red Hat BxMS 6.2+</a> is the unified KIE Server. If you are new to this subject, you should probably start with a great series of blogs from <a href="http://mswiderski.blogspot.com/2015/09/unified-kie-execution-server-part-1.html">Maciej Swiderski on the KIE Server</a>. One of the primary reasons that companies deploy KIE Server is to develop custom UI&#39;s for their end users, while still leveraging the powerful jBPM engine for process management and execution. In jBPM 6.4 and Red Hat BPM Suite 6.3, we even released <a href="http://mswiderski.blogspot.com/2016/03/jbpm-ui-extension-on-kie-server.html">a REST API specifically designed for custom HTML/JS UI&#39;s</a> as well as support for <a href="http://mswiderski.blogspot.com/2016/01/advanced-queries-in-kie-server.html">custom queries on your process and task data</a> to support sophisticated task dashboards.</p>
+
+<p>To use these features, you&#39;ll need to dig into the underlying model for authentication and authorization.</p>
+
+<h3>A Few Introductory Concepts</h3>
+
+<p>Before we can dive into the implementation details, a few things need to be made clear. The first important detail is that the following capabilities are separate and distinct jBPM &amp; Red Hat BPM Suite.</p>
 
 <ul>
-<li><a href="https://redhat.slides.com/jholmes/value-prop-for-ba">The Value Proposition of Business Automation</a></li>
-<li><a href="http://redhat.slides.com/jholmes/design-patterns-for-ba">Design Patterns for Business Automation</a></li>
-<li><a href="https://redhat.slides.com/jholmes/bxms-standard-project-structures">Standard Project Structures for Business Automation</a></li>
+<li>Authentication and authorization to access the REST API.<a href="http://www.schabell.org/2015/11/jboss-bpmsuite-restapi-auth-client-apps.html">Learn more</a>.</li>
+<li>User, groups and roles in support of human task management. See below for more details.</li>
 </ul>
 
-<h3>Next Steps</h3>
+<p>Secondly, we need to understand that out of the box, the KIE Server is configured to use <a href="https://docs.oracle.com/javase/8/docs/technotes/guides/security/jaas/JAASRefGuide.html">JAAS</a> for security. Long story short, the JAAS programming model makes it difficult for implementations to separate the above two concepts. Thus in a default installation of the KIE-Server, the user that is used to authenticate against the server for the REST API will <strong>also</strong> be used as the user to query the human task engine, even if you use the <code>user</code> query parameter in the <a href="https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_BPM_Suite/6.2/html/User_Guide/realtime_decision_server.html#user_tasks">Human Task REST API</a>.</p>
+
+<p>Since most custom UI implementations will choose to use a service account to handle authentication/authorization against the REST API and then pass in a user who is logged into the custom front-end, we&#39;ll need to do some customization because JAAS just won&#39;t cut it.</p>
+
+<h3>Configuring KIE Server For More Flexible Authentication &amp; Authorization</h3>
+
+<p>There are the <a href="https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_BPM_Suite/6.2/html/User_Guide/Realtime_Decision_Server_Setup.html#Bootstrap_switches">system properties</a> that we&#39;ll need to configure in order to get the desired behavior:</p>
 
 <ul>
-<li>We&#39;re planning to release a white paper describing the approach in July. If you are interested in an early draft <a href="mailto:jholmes@redhat.com">contact me</a>.</li>
-<li>I&#39;ll be giving a talk at <a href="https://www.redhat.com/en/summit/agenda">Red Hat Summit 2016</a> that covers this approach.</li>
-<li>We&#39;re working with other Red Hat Consultants to build out the standard project structures that align to the design patterns.</li>
+<li><code>org.kie.server.bypass.auth.user = false</code> to bypass JAAS when querying the human task engine</li>
+<li><code>org.jbpm.ht.callback = ldap|db|mvel|props|jaas|custom</code> to set an alternate method for retrieving user/group/role information.</li>
+<li><code>org.jbpm.ht.custom.callback = your.custom.class</code> to write your own <code>UserGroupCallback</code>. <a href="https://access.redhat.com/solutions/1149763">Learn more</a> on the Red Hat Customer Portal.</li>
+<li><code>org.jbpm.ht.userinfo = ldap|db|props|custom</code> to get the actual user data</li>
+<li><code>org.jbpm.ht.custom.userinfo = your.custom.class</code> to write your own <code>UserInfo</code> class</li>
 </ul>
 
-<h3>Special Thanks To..</h3>
+<p>To understand how the code actually uses these properties, the <a href="https://github.com/droolsjbpm/jbpm/blob/6.3.x/jbpm-runtime-manager/src/main/java/org/jbpm/runtime/manager/impl/identity/UserDataServiceProvider.java">UserServiceDataProvider</a> is quite useful. The <a href="https://docs.jboss.org/jbpm/v6.3/userguide/ch20.html#d0e23994">community docs</a> also provide more color on this subject, and if you are using LDAP, you might want to look at <a href="https://docs.jboss.org/jbpm/v6.3/userguide/ch20.html#d0e23994">this blog</a> as well.</p>
 
-<ul>
-<li><a href="https://www.linkedin.com/in/duncan-doyle-9601642">Duncan Doyle</a> for guiding this effort since day one</li>
-</ul>
+<h3>Using KIE Workbench / Business Central</h3>
 
-<p>photo credit: <a href="http://www.flickr.com/photos/64919142@N08/24384250265">Hands Drawing Hands</a> via <a href="http://photopin.com/">photopin</a> under <a href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons SA-2.0</a></p>
+<p>This is a different can of worms, so you&#39;ll want to check out the <a href="https://access.redhat.com/solutions/1149763">Red Hat solution article on the subject</a>.</p>
 
 
         </section>
@@ -180,15 +191,15 @@
 
             <section class="share">
                 <h4>Share this post</h4>
-                <a class="icon-twitter" href="http://twitter.com/share?text=Introducing the Business Automation Design Patterns&amp;url=http://sherl0cks.github.io/introducing-the-business-automaton-design-patterns"
+                <a class="icon-twitter" href="http://twitter.com/share?text=KIE Server Authentication & Authorization For Human Tasks&amp;url=http://sherl0cks.github.io/using-kie-server-to-get-a-task-list"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <span class="hidden">Twitter</span>
                 </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://sherl0cks.github.io/introducing-the-business-automaton-design-patterns"
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://sherl0cks.github.io/using-kie-server-to-get-a-task-list"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <span class="hidden">Facebook</span>
                 </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://sherl0cks.github.io/introducing-the-business-automaton-design-patterns"
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://sherl0cks.github.io/using-kie-server-to-get-a-task-list"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <span class="hidden">Google+</span>
                 </a>
@@ -207,20 +218,13 @@
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/cover6.jpg)" href="/using-kie-server-to-get-a-task-list">
-            <section class="post">
-                <h2>KIE Server Authentication & Authorization For Human Tasks</h2>
-                <p>One of the most exciting features developed in the [KIE Community](http://www.kiegroup.org/) and released in [Red...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/chambers_street_station.jpg)" href="/selecting-a-blog-platform">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/hands.jpg)" href="/introducing-the-business-automaton-design-patterns">
             <section class="post">
-                <h2>Selecting A Blog Platform</h2>
-                <p>Setting up a blog has been on my TODO list for several years. I&#39;ve spent...</p>
+                <h2>Introducing the Business Automation Design Patterns</h2>
+                <p>Red Hat is in the process of publishing a set of design patterns to help...</p>
             </section>
         </a>
     

@@ -56,40 +56,6 @@
 	  ]]></description>
 	</item>
 
-	<item>
-	  <title>Introducing the Business Automation Design Patterns</title>
-	  <link>//introducing-the-business-automaton-design-patterns</link>
-	  <author>Justin Holmes</author>
-	  <pubDate>2016-04-05T11:04:00-04:00</pubDate>
-	  <guid>//introducing-the-business-automaton-design-patterns</guid>
-	  <description><![CDATA[
-	     <p>Red Hat is in the process of publishing a set of design patterns to help those deploying business automation systems. The goal is to enable practioners to easily reason about their solution architecture in the large. In order to achieve this objective, we enumerate the high level design decisions that a practioner needs to maker and then we provide proscriptive guidaince on how to make those decisions. The following slide decks will walk you through the approach at different levels. Please note that this material is constantly evolving based on field experience:</p>
-
-<ul>
-<li><a href="https://redhat.slides.com/jholmes/value-prop-for-ba">The Value Proposition of Business Automation</a></li>
-<li><a href="http://redhat.slides.com/jholmes/design-patterns-for-ba">Design Patterns for Business Automation</a></li>
-<li><a href="https://redhat.slides.com/jholmes/bxms-standard-project-structures">Standard Project Structures for Business Automation</a></li>
-</ul>
-
-<h3>Next Steps</h3>
-
-<ul>
-<li>We&#39;re planning to release a white paper describing the approach in July. If you are interested in an early draft <a href="mailto:jholmes@redhat.com">contact me</a>.</li>
-<li>I&#39;ll be giving a talk at <a href="https://www.redhat.com/en/summit/agenda">Red Hat Summit 2016</a> that covers this approach.</li>
-<li>We&#39;re working with other Red Hat Consultants to build out the standard project structures that align to the design patterns.</li>
-</ul>
-
-<h3>Special Thanks To..</h3>
-
-<ul>
-<li><a href="https://www.linkedin.com/in/duncan-doyle-9601642">Duncan Doyle</a> for guiding this effort since day one</li>
-</ul>
-
-<p>photo credit: <a href="http://www.flickr.com/photos/64919142@N08/24384250265">Hands Drawing Hands</a> via <a href="http://photopin.com/">photopin</a> under <a href="https://creativecommons.org/licenses/by-sa/2.0/">Creative Commons SA-2.0</a></p>
-
-	  ]]></description>
-	</item>
-
 
 </channel>
 </rss>
