@@ -146,7 +146,7 @@
 <p>There are the <a href="https://access.redhat.com/documentation/en-US/Red_Hat_JBoss_BPM_Suite/6.2/html/User_Guide/Realtime_Decision_Server_Setup.html#Bootstrap_switches">system properties</a> that we&#39;ll need to configure in order to get the desired behavior:</p>
 
 <ul>
-<li><code>org.kie.server.bypass.auth.user = false</code> to bypass JAAS when querying the human task engine</li>
+<li><code>org.kie.server.bypass.auth.user = true</code> to bypass JAAS when querying the human task engine</li>
 <li><code>org.jbpm.ht.callback = ldap|db|mvel|props|jaas|custom</code> to set an alternate method for retrieving user/group/role information.</li>
 <li><code>org.jbpm.ht.custom.callback = your.custom.class</code> to write your own <code>UserGroupCallback</code>. <a href="https://access.redhat.com/solutions/1149763">Learn more</a> on the Red Hat Customer Portal.</li>
 <li><code>org.jbpm.ht.userinfo = ldap|db|props|custom</code> to get the actual user data</li>
